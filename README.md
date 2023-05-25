@@ -46,7 +46,17 @@
 
 4. Установить и удалить deb-пакет с помощью dpkg.
 
+   wget http://archive.ubuntu.com/ubuntu/pool/universe/p/pacman/pacman_10-17.2_amd64.deb
    
+   sudo dpkg -i pacman_10-17.2_amd64.deb
+   <img src="screenshots/4_1.png">
+
+   sudo dpkg -r pacman
+   <img src="screenshots/4_2.png">
 
 
 5. Выложить историю команд в терминале ubuntu
+
+      <img src="screenshots/5.png">
+
+
