@@ -1,33 +1,57 @@
 package shirshin.human_friends.services;
 
 
+import shirshin.human_friends.model.HumanFriend;
+import shirshin.human_friends.model.Pet;
+import shirshin.human_friends.model.PetType;
+import shirshin.human_friends.repository.Repository;
 
-public class PetService implement Service {
+import java.util.List;
+
+public class PetService implements Service {
 
     private Repository repository;
-    
-    Override
-    public void createHumanFriend(HumanFriend humanFriend){
-        repository.create(humanFriend);
+
+    public PetService(Repository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public void createHumanFriend(Pet pet, PetType petType){
+        repository.create(pet, petType);
     }
     
     @Override
-    HumanFriend getHumanFriendById(int id){
-        return repository.getAnimalById(id);
+    public HumanFriend getHumanFriendById(int id, PetType petType){
+        return repository.getOne(id, petType);
     }
     
     @Override
-    void updateHumanFriendById(int id){
-        repository.updateAnimalById(id);
+    public void updateHumanFriendById(int id, Pet pet){
+        repository.update(id, pet);
     }
     
     @Override
-    void deleteHumanFriendById(int id){
-        repository.deleteHumanFriendById(id);
+    public void deleteHumanFriendById(int id, PetType petType){
+        repository.delete(id, petType);
     }
     
     @Override
-    List<HumanFriend> getAllHumanFriend(){
-        return repository.getAllHumanFriend();
+    public List<HumanFriend> getAllHumanFriend(PetType... args){
+
+        for (PetType petType : args) {
+            if (petType.equals(PetType.cats)) {
+                return repository.getAll(PetType.cats);
+            }
+            if (petType.equals(PetType.dogs)) {
+                return repository.getAll(PetType.dogs);
+            }
+
+            if (petType.equals(PetType.hamsters)) {
+                return repository.getAll(PetType.hamsters);
+            }
+        }
+
+        return repository.getAll(PetType.cats, PetType.dogs, PetType.hamsters);
     }
 }

@@ -1,4 +1,7 @@
-package shirshin.human_friends.model
+package shirshin.human_friends.model;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Hamster extends Pet{
     
@@ -6,7 +9,7 @@ public class Hamster extends Pet{
         super();
     }
     
-    public Hamster(int id, String nikname, LocalDateTime birthday, String colour, String breed){
+    public Hamster(int id, String nikname, LocalDate birthday, String colour, String breed){
         super(id, nikname, birthday, colour, breed);
     }
 

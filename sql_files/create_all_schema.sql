@@ -4,52 +4,35 @@ CREATE DATABASE IF NOT EXISTS human_friends;
 
 USE human_friends;
 
-## создаем таблицу 'хозяин животного'
-
-CREATE TABLE IF NOT EXISTS owners
-(
-    id   INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(25),
-    PRIMARY KEY (id)
-);
-
 ## создаем таблицы с домашними животными
 
 CREATE TABLE IF NOT EXISTS dogs
 (
-    id            INT         NOT NULL AUTO_INCREMENT,
-    nikname       VARCHAR(25) NOT NULL,
-    birthday      DATE        NOT NULL,
-    colour        VARCHAR(25) NOT NULL,
-    has_pet_house boolean,
-    purpous       VARCHAR(25),
-    owner_id      INT,
-    FOREIGN KEY (owner_id) REFERENCES owners (id) ON DELETE CASCADE,
+    id       INT         NOT NULL AUTO_INCREMENT,
+    nikname  VARCHAR(25) NOT NULL,
+    birthday DATE        NOT NULL,
+    colour   VARCHAR(25) NOT NULL,
+    breed    VARCHAR(25),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS cats
 (
-    id            INT         NOT NULL AUTO_INCREMENT,
-    nikname       VARCHAR(25) NOT NULL,
-    birthday      DATE        NOT NULL,
-    colour        VARCHAR(25) NOT NULL,
-    has_pet_house boolean,
-    breed         VARCHAR(25),
-    owner_id      INT,
-    FOREIGN KEY (owner_id) REFERENCES owners (id) ON DELETE CASCADE,
+    id       INT         NOT NULL AUTO_INCREMENT,
+    nikname  VARCHAR(25) NOT NULL,
+    birthday DATE        NOT NULL,
+    colour   VARCHAR(25) NOT NULL,
+    breed    VARCHAR(25),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS hamsters
 (
-    id            INT         NOT NULL AUTO_INCREMENT,
-    nikname       VARCHAR(25) NOT NULL,
-    birthday      DATE        NOT NULL,
-    colour        VARCHAR(25) NOT NULL,
-    has_pet_house boolean,
-    owner_id      INT,
-    FOREIGN KEY (owner_id) REFERENCES owners (id) ON DELETE CASCADE,
+    id       INT         NOT NULL AUTO_INCREMENT,
+    nikname  VARCHAR(25) NOT NULL,
+    birthday DATE        NOT NULL,
+    colour   VARCHAR(25) NOT NULL,
+    breed    VARCHAR(25),
     PRIMARY KEY (id)
 );
 

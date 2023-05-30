@@ -1,11 +1,15 @@
-
+package shirshin.human_friends;
 
 public class Counter implements AutoCloseable{
 
-    private static int counter = 0;
+    int counter = 0;
 
     public void add() throws Exception {
         counter++;
+    }
+
+    public void remove() throws Exception {
+        counter--;
     }
     
     public int getCounter(){

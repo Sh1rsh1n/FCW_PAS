@@ -1,6 +1,9 @@
 package shirshin.human_friends.model;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class HumanFriend {
     
@@ -8,7 +11,7 @@ public abstract class HumanFriend {
     
     protected String nikname;
     
-    protected LocalDateTime birthday;
+    protected LocalDate birthday;
     
     protected String colour;
     
@@ -17,7 +20,7 @@ public abstract class HumanFriend {
     public HumanFriend(){
     }
     
-    public HumanFriend(int id, String nikname, LocalDateTime birthday, String colour) {
+    public HumanFriend(int id, String nikname, LocalDate birthday, String colour) {
         this.id = id;
         this.nikname = nikname;
         this.birthday = birthday;
@@ -28,7 +31,11 @@ public abstract class HumanFriend {
     public int getId() {
         return id;
     }
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNikname(){
         return nikname;
     }
@@ -37,11 +44,11 @@ public abstract class HumanFriend {
         this.nikname = nikname;
     }
     
-    public LocalDateTime getBirthday(){
+    public LocalDate getBirthday(){
         return birthday;
     }
     
-    public void setBirthday(LocalDateTime birthday){
+    public void setBirthday(LocalDate birthday){
         this.birthday = birthday;
     }
     
@@ -61,6 +68,14 @@ public abstract class HumanFriend {
     public void addCommand(String command){
         commandsList.add(command);
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "HumanFriend{" +
+                "nikname='" + nikname + '\'' +
+                ", birthday=" + birthday +
+                ", colour='" + colour + '\'' +
+                ", commandsList=" + commandsList +
+                '}';
+    }
 }
